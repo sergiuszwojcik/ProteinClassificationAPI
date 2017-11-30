@@ -1,0 +1,4 @@
+12. Klasyfikacja bia³ek
+Implementacja API dla baz klasyfikuj¹cych struktury bialkowe: SCOP2 (http://scop2.mrclmb.cam.ac.uk/graph/restapi.html)
+oraz funkcji umo¿liwiaj¹cych pobranie najnowszej wersji bazy
+CATH (http://www.cathdb.info/download) 
