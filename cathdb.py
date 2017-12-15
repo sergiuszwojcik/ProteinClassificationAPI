@@ -1,9 +1,11 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import re
+
 """
 CATH DATABASE REST API
 """
+
 
 def get_catch_versions():
     """
@@ -44,22 +46,86 @@ def get_catch_versions():
     print('\n'.join((sorted(set(version_list)))))
 
 
-def get_protein_domain_id_list(version):
+def get_protein_domain_id_list(version="4_2_0", ):
     get_cath_domain_list = urlopen(
-        "http://download.cathdb.info/cath/releases/all-releases/v4_2_0/cath-classification-data/cath-domain-list-v4_2_0.txt")
+        "http://download.cathdb.info/cath/releases/all-releases/v" + version +
+        "/cath-classification-data/cath-domain-list-v" + version + ".txt")
+
+    cath_domain_list_toXML = BeautifulSoup(get_cath_domain_list, "lxml")
+    cath_domain_list_toText = cath_domain_list_toXML.p.get_text()
+    cath_domain_list_toText = cath_domain_list_toText[
+                              500:]  # without not needed description start after 500 letters
+    cath_domain_list_splitted = cath_domain_list_toText.split("\n")
+    print_range = 0
+    if version in ["2_0", "2_4", "2_5", "2_6_0"]:  # Old version got other format in file
+        for line in cath_domain_list_splitted[1:]:
+            print(line[0:6], end=" ")
+            print_range += 1
+            if (print_range % 20 == 0):
+                print()
+
+    else:
+        for line in cath_domain_list_splitted[1:]:
+            print(line[0:7], end=" ")
+            print_range += 1
+            if (print_range % 20 == 0):
+                print()
 
 
-def check_id_domain_description(version, id_domain):
+def get_protein_pdb_id_list(version="4_2_0"):
+    """
+    Prints all pdb_id needed to download protein database or check description od protein
+    For example those pdb_id can be used in rest link:
+    http://www.cathdb.info/version/v4_1_0/api/rest/id/<pdb_id>.pdb
+
+    :type: version: string
+    :param version: version of cath database, default "4_2_0"
+    :Example:
+    get_protein_pdb_id_list("4_2_0")
+    """
+    get_cath_domain_list = urlopen(
+        "http://download.cathdb.info/cath/releases/all-releases/v" + version +
+        "/cath-classification-data/cath-domain-list-v" + version + ".txt")
+
+    cath_domain_list_toXML = BeautifulSoup(get_cath_domain_list, "lxml")
+    cath_domain_list_toText = cath_domain_list_toXML.p.get_text()
+    cath_domain_list_toText = cath_domain_list_toText[500:]  # without description start after 500 letters
+    cath_domain_list_splitted = cath_domain_list_toText.split("\n")
+    print_range = 0
+    pdb_id_set = set()
+    if version in ["2_0", "2_4", "2_5", "2_6_0"]:  # Old version got other format in file
+        for line in cath_domain_list_splitted[1:]:
+            pdb_id_set.add(line[0:4])
+
+    else:
+        for line in cath_domain_list_splitted[1:]:
+            pdb_id_set.add(line[0:4])
+
+    set_to_list = list(pdb_id_set)
+    for element in set_to_list:
+        print(element, end=" ")
+        if (print_range % 10 == 0 and print_range > 0):
+            print()
+        print_range += 1
+
+
+def check_id_domain_descrqiption(version="4_2_0", id_domain=""):
     """
     prints out node, domain and description of protein
 
     :type version: string
-    :param version: version of cath database
+    :param version: version of cath database, default "4_2_0"
     :type id_domain: string
-    :param id_domain: the id_domain of protein for example "2ynzC01"
+    :param id_domain: the id_domain of protein, default "2ynzC01"
     :Example:
-    check_id_domain_description("4_2_0", "2ynzC01")
+    check_id_domain_description(version = "4_2_0", id_domain = "2ynzC01")
     """
+
+    if id_domain == "":
+        raise Exception('id_domain is null, must be filled ')
+    if version == "":
+        raise Exception('version is null, must be filled ')
+
     get_cath_names_url = urlopen(
         "http://download.cathdb.info/cath/releases/all-releases/v" + version + "/cath-classification-data/cath-names-v"
         + version + ".txt")
@@ -72,3 +138,18 @@ def check_id_domain_description(version, id_domain):
                   " Node description ", ''.join(splitted_line[2:]))
 
 
+def cath_download_domain_id():
+    pass
+
+
+def cath_download_chain_id():
+    pass
+
+
+def cath_download_pdb_id():
+    pass
+
+
+def cath_get_domain_id_by_superfamily_id():
+    """https://github.com/sergiuszwojcik/ProteinClassificationAPI/blob/master/cathdb.py"""
+    pass
