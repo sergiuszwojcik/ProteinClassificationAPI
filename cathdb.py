@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
+from urllib.request import urlopen, urlretrieve
 import re
+import os
+import requests
+
 
 """
 CATH DATABASE REST API
@@ -74,7 +77,7 @@ def get_protein_domain_id_list(version="4_2_0", ):
 
 def get_protein_pdb_id_list(version="4_2_0"):
     """
-    Prints all pdb_id needed to download protein database or check description od protein
+    Prints all pdb_id needed to download protein database or to check description of protein
     For example those pdb_id can be used in rest link:
     http://www.cathdb.info/version/v4_1_0/api/rest/id/<pdb_id>.pdb
 
@@ -109,7 +112,7 @@ def get_protein_pdb_id_list(version="4_2_0"):
         print_range += 1
 
 
-def check_id_domain_descrqiption(version="4_2_0", id_domain=""):
+def get_id_domain_short_description(version="4_2_0", id_domain=""):
     """
     prints out node, domain and description of protein
 
@@ -117,8 +120,7 @@ def check_id_domain_descrqiption(version="4_2_0", id_domain=""):
     :param version: version of cath database, default "4_2_0"
     :type id_domain: string
     :param id_domain: the id_domain of protein, default "2ynzC01"
-    :Example:
-    check_id_domain_description(version = "4_2_0", id_domain = "2ynzC01")
+    :Example: check_id_domain_description(version = "4_2_0", id_domain = "2ynzC01")
     """
 
     if id_domain == "":
@@ -138,6 +140,40 @@ def check_id_domain_descrqiption(version="4_2_0", id_domain=""):
                   " Node description ", ''.join(splitted_line[2:]))
 
 
+def get_id_domain_full_description(version="4_2_0", id_domain=""):
+    """
+    This function prints full description about searched for id_domain protein.
+
+    :Warning: This function can be making very long, becouse the file is very huge
+
+    :type version: string
+    :type version: string
+    :param version: version of cath database, default "4_2_0"
+    :param id_domain: the id_domain of protein
+    :Example: get_id_domain_full_description(version = "4_2_0", id_domain = "2ynzC01")
+    """
+    if id_domain == "":
+        raise Exception('id_domain is null, must be filled ')
+    if version == "":
+        raise Exception('version is null, must be filled ')
+    lines = urlopen(
+        "http://download.cathdb.info/cath/releases/all-releases/v"+version
+        +"/cath-classification-data/cath-domain-description-file-v"+version+".txt")
+    my_str = str(id_domain)
+    my_str2 = "ENDSEG"
+    my_str_as_bytes = str.encode(my_str)
+    my_str_as_bytes2 = str.encode(my_str2)
+    for value, line in enumerate(lines, 1):
+        if my_str_as_bytes in line:
+            print(line.decode('utf-8'), end="")
+            for line in lines:
+                if my_str_as_bytes2 in line:
+                    break
+                print(line.decode('utf-8'), end="")
+            break
+
+
+
 def cath_download_domain_id():
     pass
 
@@ -146,10 +182,41 @@ def cath_download_chain_id():
     pass
 
 
-def cath_download_pdb_id():
-    pass
+def cath_download_pdb_id(version = "4_1_0", pdb_id = "", save_file_path = ""):
+    """
+    Saves the .pdb file of given pdb_id in project folder, or in specified file path.
+    Works for all versions without 4_2_0 not added to rest service on cathdb database.
+
+    :type version: string
+    :type pdb_id: string
+    :type save_file_path: string
+    :param version: default version 4_1_0, latest version 4_2_0 not working
+    :param pdb_id:
+    :param save_file_path: default saving to project directory can be changed C:/.../
+    :Example:
+    Saving to project directory:
+     cath_download_pdb_id(version="4_0_0", pdb_id="2zjp")
+    Saving to specified folder remeber to change slash in path:
+     cath_download_pdb_id(version="4_0_0", pdb_id="2zjp", save_file_path="C:/Users/zerg/Downloads/")
+
+    """
+
+    if pdb_id == "":
+        raise Exception('pdb_id is null, must be filled ')
+    if version == "":
+        raise Exception('version is null, must be filled ')
+
+
+    downloadUrl = "http://www.cathdb.info/version/v"+version+"/api/rest/id/"+pdb_id+".pdb"
+    if(save_file_path == ""):
+        saveFile = urlretrieve(downloadUrl, pdb_id+'.pdb')
+        print("File saved in project directory")
+    else:
+        saveFile = urlretrieve(downloadUrl, save_file_path+ pdb_id+'.pdb')
+        print("File saved in " + save_file_path+ pdb_id+'.pdb')
 
 
 def cath_get_domain_id_by_superfamily_id():
-    """https://github.com/sergiuszwojcik/ProteinClassificationAPI/blob/master/cathdb.py"""
     pass
+
+

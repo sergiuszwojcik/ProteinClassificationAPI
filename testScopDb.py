@@ -1,0 +1,1 @@
+from scop2db import *
