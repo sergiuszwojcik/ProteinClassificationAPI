@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e2e2d995-6632-4370-9905-088e5c8d45f6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/scop2db_data_test.py" afterPath="$PROJECT_DIR$/scop2db_data_test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ProteinClassificationAPI$scop2db_data_test.coverage" NAME="scop2db_data_test Coverage Results" MODIFIED="1518044079021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ProteinClassificationAPI$scop2db_data_test.coverage" NAME="scop2db_data_test Coverage Results" MODIFIED="1518044153293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProteinClassificationAPI$scop2db.coverage" NAME="scop2db Coverage Results" MODIFIED="1518042217321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProteinClassificationAPI$test.coverage" NAME="test Coverage Results" MODIFIED="1513006405870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProteinClassificationAPI$testk.coverage" NAME="testk Coverage Results" MODIFIED="1513799604693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -33,8 +32,8 @@
             <file leaf-file-name="scop2db_data_test.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/scop2db_data_test.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="198">
-                    <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+                  <state relative-caret-position="199">
+                    <caret line="242" column="73" lean-forward="true" selection-start-line="242" selection-start-column="73" selection-end-line="242" selection-end-column="73" />
                     <folding>
                       <element signature="e#0#21#0" expanded="true" />
                     </folding>
@@ -52,8 +51,8 @@
       <file leaf-file-name="scop2db.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scop2db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="578" column="9" lean-forward="true" selection-start-line="578" selection-start-column="9" selection-end-line="578" selection-end-column="9" />
+            <state relative-caret-position="419">
+              <caret line="596" column="41" lean-forward="true" selection-start-line="596" selection-start-column="41" selection-end-line="596" selection-end-column="41" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -450,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518043995881</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="documentation update3">
+      <created>1518044141525</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1518044141525</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -466,8 +472,8 @@
     <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.113149844" sideWeight="0.7507553" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34056398" sideWeight="0.08785942" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34056398" sideWeight="0.91214055" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31344903" sideWeight="0.08785942" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31344903" sideWeight="0.91214055" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -503,7 +509,8 @@
     <MESSAGE value="huge update" />
     <MESSAGE value="documentation update" />
     <MESSAGE value="documentation update2" />
-    <option name="LAST_COMMIT_MESSAGE" value="documentation update2" />
+    <MESSAGE value="documentation update3" />
+    <option name="LAST_COMMIT_MESSAGE" value="documentation update3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -758,8 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scop2db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="578" column="9" lean-forward="true" selection-start-line="578" selection-start-column="9" selection-end-line="578" selection-end-column="9" />
+        <state relative-caret-position="419">
+          <caret line="596" column="41" lean-forward="true" selection-start-line="596" selection-start-column="41" selection-end-line="596" selection-end-column="41" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -768,8 +775,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scop2db_data_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        <state relative-caret-position="199">
+          <caret line="242" column="73" lean-forward="true" selection-start-line="242" selection-start-column="73" selection-end-line="242" selection-end-column="73" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
