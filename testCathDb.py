@@ -9,3 +9,9 @@ import cathdb
 #cathdb.get_protein_pdb_id_list()
 #cathdb.get_catch_versions()
 #cathdb.get_protein_domain_id_list()
+
+cathdb.get_protein_domain_id_list()
+
+
+# cathdb.get_id_domain_full_description(version="4_2_0", id_domain="1xmaA00")
+# print("poszlo")
