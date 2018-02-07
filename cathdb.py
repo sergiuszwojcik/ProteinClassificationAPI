@@ -215,8 +215,12 @@ def get_id_domain_short_description(version="4_2_0", id_domain=""):
             #       " Node description ", ''.join(splitted_line[2:]))
     return all_names_list
 
+# print(get_id_domain_short_description(version="4_2_0", id_domain="2ynzC01"))
+# print(get_id_domain_short_description(version="4_0_0", id_domain="3b89A01"))
+# print(get_id_domain_short_description(version="4_2_0", id_domain="3b89A01"))
 
 def get_id_domain_full_description(version="4_2_0", id_domain=""):
+
     """
     This function prints full description about searched for id_domain protein.
 
