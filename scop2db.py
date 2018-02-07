@@ -215,12 +215,14 @@ def scop2_get_nodes_names():
     nodes_names_list_all = []
 
     for lines in get_nodes_names_splitted[6:]:
-        nodes_names["node_id"] = lines[:7]
-        nodes_names["name"] = lines[8:]
-        nodes_names_list_all.append(nodes_names)
-        nodes_names = {}
+        if len(lines) > 0:
+            nodes_names["node_id"] = lines[:7]
+            nodes_names["name"] = lines[8:]
+            nodes_names_list_all.append(nodes_names)
+            nodes_names = {}
     return nodes_names_list_all
 
+# print(scop2_get_nodes_names())
 
 def scop2_get_nodes_names_by_id(node_id):
     """
@@ -271,7 +273,7 @@ def scop2_get_domain_data_by_domain_id(domain_id):
     return domain_dict
 
 
-print(scop2_get_domain_data_by_domain_id("PR-8004118-1S70B"))
+# print(scop2_get_domain_data_by_domain_id("PR-8004118-1S70B"))
 
 
 def scop2_get_ontology_tree_by_term_id(term_id):
@@ -420,7 +422,7 @@ def scop2_get_IR_protein_classification_by_term_id(term_id):
 # scop2_get_IR_protein_classification_by_term_id("IR:7000008")
 
 
-def scop2_get_IR_protein_classification_by_protein_term_id(term_id):
+def scop2_get_PR_protein_classification_by_protein_term_id(term_id):
     """
     Returns protein classification by given term id. Returns list of dictionaries\n
     :param term_id: term_id
@@ -484,7 +486,7 @@ def scop2_get_IR_protein_classification_by_protein_term_id(term_id):
 #     print(x)
 
 
-def scop2_get_IR_protein_classification_by_protein_term_id(pdb_code):
+def scop2_get_PR_protein_classification_by_protein_pdb_code(pdb_code):
     """
       Returns protein classification by given pdb code. Returns list of dictionaries\n
       :param pdb_code: pdb_code
@@ -566,7 +568,7 @@ def scop2_get_IR_protein_classification_by_protein_term_id(pdb_code):
 #     print(x)
 
 
-def scop2_get_IR_multiple_protein_classification_by_protein_term_id(pdb_code):
+def scop2_get_PR_multiple_protein_classification_by_protein_pdb_code(pdb_code):
     """
       Returns multiple given proteins classification by given list of pdb codes. Returns list of lists with dictionaries
       \n
