@@ -195,6 +195,7 @@ http://scop2.mrc-lmb.cam.ac.uk/graph/restapi/domain?id=" + "domain_id"
 Dane zostały zweryfikowane ręcznie
 """
 print("Test pobierania informacji")
+start_time = time.time()
 for x in scop2_get_domain_data_by_domain_id("PR-8004118-1S70B"):
     print(x['id'])
     print(x['node'])
@@ -211,6 +212,8 @@ for x in scop2_get_domain_data_by_domain_id("SF-8004171-2YVIA"):
     print(x['id'])
     print(x['node'])
     print(x['segments'])
+
+print("--- %s seconds avg Dla wywolan---\n" % ((time.time() - start_time)/3))
 print()
 
 print()
@@ -221,7 +224,7 @@ http://scop2.mrc-lmb.cam.ac.uk/graph/#/GEc0/ZDES/vyJmguhk.dat#1#is_a,part_of,occ
 """
 print()
 print("Test białek porownywane ze strona SCOP2 graf")
-
+start_time = time.time()
 for x in scop2_get_PR_protein_classification_by_protein_pdb_code("1VL6"):
     print(x)
 
@@ -243,6 +246,12 @@ for x in scop2_get_PR_protein_classification_by_protein_pdb_code("1DHR"):
 for x in scop2_get_PR_protein_classification_by_protein_pdb_code("1NP3"):
     print(x)
 
-for x in scop2_get_PR_multiple_protein_classification_by_protein_pdb_code(["1VL6","1PQW","1UDC","1OAA","1ZMT","1DHR"]):
+print("--- %s seconds avg Dla pojedynczych wywolan---\n" % ((time.time() - start_time)/7))
+print("\n")
+
+start_time = time.time()
+for x in scop2_get_PR_multiple_protein_classification_by_protein_pdb_code(["1VL6","1PQW","1UDC","1OAA","1ZMT","1DHR","1NP3"]):
     print(x)
 
+print("--- %s seconds avg Dla zbiorowego wywolania---\n" % ((time.time() - start_time)/7))
+print("\n")
