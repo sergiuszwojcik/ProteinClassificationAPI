@@ -271,7 +271,7 @@ def scop2_get_domain_data_by_domain_id(domain_id):
     return domain_dict
 
 
-# print(scop2_get_domain_data_by_domain_id("PR-8004118-1S70B"))
+print(scop2_get_domain_data_by_domain_id("PR-8004118-1S70B"))
 
 
 def scop2_get_ontology_tree_by_term_id(term_id):
@@ -647,7 +647,3 @@ def scop2_get_IR_multiple_protein_classification_by_protein_term_id(pdb_code):
     return whole_list
 
 
-# for x in scop2_get_IR_multiple_protein_classification_by_protein_term_id(["1VL6", "1C1D"]):
-#     for y in x:
-#         print(y)
-#     print()
